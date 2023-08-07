@@ -1,71 +1,74 @@
 ---
 title: "A3: Incarceration"
+author: "Mengshan(Doryi) Wang"
+Date: "2023/08/06"
 output: html_document
 ---
 
 ### Introduction
 
-An introduction of the problem domain and a description of the variable(s) you are choosing to analyze (and why!)
+The justice system in the United States has been the focus of much discussion and debate and is a hot topic, largely because of its intricate relationship with a variety of complex social factors such as urbanization and race. This report delves into the relationship between race, urbanicity, and jail population in WA and in US. To conduct this exploration, two comprehensive datasets are examined in depth here, one detailing incarceration trends in Washington State since 1990 and the one showing incarceration trends across the United States since 1990. By focusing on variables such as racial prison population ratios (specifically black and white jail population rates), as well as differences in total jail population rate across different urbanization levels, this report aims to provide a granular understanding of racial disparities in incarceration and differences in urbanization. The analyze specifically use variables urbanicity is because depending on difference on population density, economic level, and degree of urbanization, there would be unique incarceration trends. By comparing incarceration rates at different city levels, we can understand how the socio-economic and demographic structure of a place affects its incarceration patterns(in WA); and with race being a variable that is a historical and systemic challenge for Black communities, it is critical to understand racial disparities in incarceration rates. Analyzing the differences between Black and White prison population rates provides a specific metric to inform the measurement of these disparities.
 
 ### Summary Information
+In this analysis, the focus will be on incarceration rates by race (Black and White) within the United States, and effection of urbanicity on incarceration rates in WA. The charts are going to show more detailed about those data, the calculation in summary will mainly focus on the bigger picture as in the range of US, the highest and lowest jail population rate for black and white race and which state has the highest difference between black and white(in the most recently year).
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+These calculations have then been used to identify states with the highest and lowest average incarceration rates for each racial group, as well as the largest difference in rates:
 
-These will likely be calculated using your DPLYR skills, answering questions such as: 
+1. **Highest/Lowest Average Incarceration Rate for Black Individuals**
+The "highest_jail_pop_rate_black" calculate the highest average rate of incarceration for Black individuals, which is about 34524.05 per 100,000 people. The "lowest_jail_pop_rate_black calculate" lowest average rate of incarceration for Black individuals, which is about 268.28 per 100,000 people.
 
-- What is the average value of my variable across all the counties (in the current year)?
-- Where is my variable the highest / lowest?
-- How much has my variable change over the last N years?
+2. **Highest/Lowest Average Incarceration Rate for White Individuals**
+The "highest_jail_pop_rate_white" calculate the highest average rate of incarceration for white individuals, which is about 954.22 per 100,000 people. The "lowest_jail_pop_rate_white" calculate lowest average rate of incarceration for Black individuals, which is about 42.61 per 100,000 people.
 
-Feel free to calculate and report values that you find relevant. Again, remember that the purpose is to think about how these measure of incarceration vary by race.
+3. **Highest/Lowest jail population rate difference**
+This calculate the highest and lowest difference between black jail population rate and white jail population rate. The highest is 34524.05 per 100,000 people and the lowest is 98.81 per 100,000 people
+
+4. **State with Highest Average Incarceration Rate difference**
+The state with with highest difference between black jail population rate and white jail population rate is UT, which has 34524.05 per 100,000.
+
+5. **State with Lowest Average Incarceration Rate difference**
+The state with with lowest difference between black jail population rate and white jail population rate is AK, which has 98.81 per 100,000.
+
+All those calculations shows the significant difference of jail population rate that between race of black and white, which shows that there are correlationship and biases on the justice and jail system towards races. No matter for the highest or the lowest population rate, the rate for black is much higher than the white, and the biggest difference is about 33611.82 while the highest for black is about 34523.05 per 100,000. Those data should let people reconsider the justice of law and jail system.
 
 ### The Dataset
 
-Who collected the data?  
-How was the data collected or generated?  
-Why was the data collected?  
-How many observations (rows) are in your data?  
-How many features (columns) are in the data?  
-What, if any, ethical questions or questions of power do you need to consider when working with this data?  
-What are possible limitations or problems with this data?   (at least 200 words)
-
+1. **Who collected the data?**
+The data is collected by Vera, a national organization that has long history of advocacy, research and activism which aimed at reforming criminal laws and the immigration system and researchers and activists working to end mass incarceration.
+2. **How was the data collected or generated?** 
+From the code book it claims that the data set is combines of sources of NCRP, ASJ, COJ, DCRP that was collected by U.S. Department of Justice Bureau of Justice Statistics (BJS) and state departments of correction as supplement.
+3. **Why was the data collected?**
+It is a project that aims to provide freely accessible data on the number of individuals in jails and prisons for every county in the United States in order to better enlighten the public discourse on mass incarceration and help lead reform.
+4. **How many observations (rows) are in your data?**  
+For the dataset showing the US prison/jail rates for All state from 1990, there are 91031 observations, and for the dataset showing the US prison/jail rates for Washington state from 1990, there are 1131 observations.
+5. **How many features (columns) are in the data?**  
+For the dataset showing the US prison/jail rates for All state from 1990, there are 23 features(columns), and for the dataset showing the US prison/jail rates for Washington state from 1990, there are 23 features.
+6. **What, if any, ethical questions or questions of power do you need to consider when working with this data?**  
+These data are provided by the government, and the government power structure is a power in this set of data, and it's likely to influence the data collection process. When we analyze the dataset it is important that we are sensitive to the broader implications and understand the story behind the numbers rather than just taking them at face value. Incarceration data, especially data on racial disparities, can reveal systemic bias and how does the power affect the data collection. Studying incarceration rates, especially those differentiated by race, must carefully consider ethical and power dynamics. Data can reflect policy implications and influence policy in reverse. Racial disparities in incarceration rates highlight the systemic biases that exist in the justice system. These data should be analyzed with the perspective of advocating for justice and fairness rather than reinforcing stereotypes.
+7. **What are possible limitations or problems with this data?   (at least 200 words)**
+While the dataset provides valuable insights into incarceration trends, it comes with certain limitations:
+1Limited Geographical Scope: The second dataset focuses on Washington State, and findings might not be generalized across the U.S. due to varying state laws, policing practices, and social demographics. However, for the US dataset there are lot of data and some of the counties has NA for many important value like difference race jail rate, which could lead to less accurate calculation and not reflecting the real life situation.
+Potential Reporting Bias: Data collected from different counties and jails may suffer from reporting bias or inconsistent record-keeping practices. And there are lot of NA so the calculation couldn't reflect all the people in US and could cause more bias problem.
+Absence of Contextual Information: The dataset doesn't include potential explanatory factors such as socioeconomic status, education, employment, or the nature and severity of the crimes committed.
+Potential for Misinterpretation: There's a risk that the data could be misconstrued or manipulated to support harmful narratives if not responsibly interpreted. Also, missing those factors could lead to the false result and conclusion.
 
 ### Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
 
-The first chart that you will create and include will show the trend over time of your variable/topic. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - This may mean showing the same measure for different locations or different racial groups. Think carefully about a meaningful comparison of locations (e.g., the top 10 counties in a state, top 10 states, etc.)
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
+``````{r, echo = FALSE, code = readLines("chart1_example.R"), message=FALSE, warning = FALSE}
 ```
+This line chart shows the different urbanicity's total jail population rate changing trend over the years from 1990 to 2018 in Washington. It seems that the Urban cities has overall stable and lowest jail population rate, while small and middle urbanicity has the highest rate. It seems higher urbanicity would lead to lower and more stable jail population rate, while lower urbanicity leads to higher and increacing jail population rate, and greater data fluctuations. Also, more recently year there are higher jail rate for less urbanicity cities. Overall, the chart shows the trend is that higher urbanicity seems has stable and lower jail rate while lower urbanicity seems has higher jail rate and the jail rate is seems increasing after years pass. This is included is to shows the impact of urbanicity on jail population rate, so that we could factor out the effects of urbanicity and time on jail population rate in later study and more focus on racial influence.
 
 ### Variable Comparison Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+``````{r, echo = FALSE, code = readLines("chart2_example.R"), warning = FALSE}
+```
+This bar chart shows the black and white average jail rate for differenct urbanicity in Washington. The chart shows that no matter which urbanicity is, black has much higher jail rate than white race and this difference is larger at cities that has lower urbanicity. I included this chart is to shows the difference between black and white race in directly comparison, and by showing in different urbanicity, it seems that great difference is more caused by race instead of urbanicity. So this shows the seriousness of this problem and the unfair that going on in Those cities in Washington State.
 
-The second chart that you will create and include will show how two different (continuous) variables are related to one another. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- If you choose to add a color encoding (not required), you need a legend for your different color and a clear legend title
 
 ### Map
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+``````{r, echo = FALSE, code = readLines("map_example.R"), warning = FALSE}
+```
 
-The last chart that you will create and include will show how a variable is distributed geographically. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Your map needs a title
-- Your color scale needs a legend with a clear label
-- Use a map based coordinate system to set the aspect ratio of your map
-
+This map shows the jail population rate difference between black and white race for each state in US. I included this chart is to show that the problem of this bias and difference in geologically and let people realize that this is a national wide problem. The patterns emerged that in the middle of US the problems get more serious, and the west coast and east coast seems to have less difference, and it seems that the south-east part of America has higher jail population, however, comparing two map we can see that the rate differene amount races are might caused by the difference population but definitely there are other factor that has greater influence in the difference. It seems there are some states with higher jail population but lower difference while some state wit low jail population but high difference rate between black and white. So there is bias and racial discrimination going on in America jail system.
